@@ -14,6 +14,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/test')
+def test():
+    return "{status:ok}"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     dirLab = "static/retrained_labels.txt"
