@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return render_template('index.html',result="none",accurcy=0)
+	return 'Hello, World :)'
 
 @app.route('/about')
 def about():
-    return 'Hello, World!'
+    return 'Hello, World!<br> This website is out of service.<br>THANK YOU :)'
 
 @app.route('/predict2' , methods=['POST'])
 def predict2():
