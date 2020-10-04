@@ -3,14 +3,13 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator,load_img,img
 import tempfile
 from flask import Flask,render_template,url_for,request
 from PIL import Image
-from tensorflow import keras
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('index.html',result="none",accurcy=0)
-#API : Deep learning system to screen coronavirus disease 2019 pneumonia <br>created by : Khadija Ouchatti <br> Azzedine Hilali <br>  Abdellah Sabbari <br> 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -24,9 +23,9 @@ def predict():
  
         image = request.files['namequery']
 
-        pil_image = Image.open(image)
-
-        imgTf = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
+        #pil_image = Image.open(image)
+        imgTf=img_to_array(load_img(image))
+        #imgTf = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
         
     classifications = []
 
